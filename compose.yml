@@ -5,7 +5,7 @@ networks:
 services:
   web:
     build: ./src
-    hostname: skogo1
+    hostname: sample_go_app_host
     ports:
       - "8000:8000"
     networks:
