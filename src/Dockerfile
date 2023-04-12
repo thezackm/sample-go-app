@@ -14,7 +14,7 @@ RUN go mod download
 COPY *.go ./
 
 # Run the Go build and output binary under fy24sko_change_tracking
-RUN go build -o /go_sample_app
+RUN go build -o /sample_go_app
 
 # Create a new release stage to copy only the binary from the builder stage above
 # This is done to dramatically lower the final Docker image size
@@ -24,10 +24,10 @@ FROM gcr.io/distroless/base-debian10
 WORKDIR /
 
 # Copy over the binary from the first stage to the new image
-COPY --from=builder /go_sample_app /go_sample_app
+COPY --from=builder /sample_go_app /sample_go_app
 
 # Make sure to expose the port the HTTP server is using
 EXPOSE 8000
 
 # Run the app binary when we run the container
-ENTRYPOINT ["/go_sample_app"]
+ENTRYPOINT ["/sample_go_app"]
