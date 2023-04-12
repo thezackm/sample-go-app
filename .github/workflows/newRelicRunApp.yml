@@ -9,7 +9,7 @@ jobs:
 
     env:
       NR_LICENSE_KEY: ${{ secrets.NR_LICENSE_KEY }}
-      NR_APP_NAME: "fy24sko-change-tracking"
+      NR_APP_NAME: "sample_go_app"
 
     steps:
       - name: Checkout code
@@ -32,7 +32,7 @@ jobs:
       - name: Run Docker Compose with a 60m timer
         run: |
           docker-compose -f compose.yml up -d
-          sleep 1h # Leave these containers running for 1 hour to give time to finish the lab
+          sleep 3h # Leave these containers running for 3 hours (max: 6)
       
       - name: Stop containers
         run: |
