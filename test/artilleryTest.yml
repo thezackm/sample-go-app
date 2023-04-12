@@ -1,5 +1,5 @@
 config:
-  target: "http://skogo1:8000"
+  target: "http://sample_go_app_host:8000"
   phases:
     - duration: 3600
       arrivalRate: 1
